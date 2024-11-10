@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peran;
+use App\Models\Cast;
+use App\Models\Film;
 use App\Http\Requests\StorePeranRequest;
 use App\Http\Requests\UpdatePeranRequest;
+use App\Http\Controllers\PeranController;
 
 class PeranController extends Controller
 {
@@ -13,7 +16,7 @@ class PeranController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -21,7 +24,7 @@ class PeranController extends Controller
      */
     public function create()
     {
-        //
+        return view('Peran.create-peran');
     }
 
     /**
@@ -29,31 +32,43 @@ class PeranController extends Controller
      */
     public function store(StorePeranRequest $request)
     {
-        //
+        $request->validate([
+            'actor' => 'required|string|max:255',
+            'cast_id' => 'required|integer',
+            'film_id' => 'required|integer',
+        ]);
+    
+        Peran::create($request->all());
+        return redirect()->route('Peran.index')->with('success', 'Peran berhasil ditambahkan');
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Peran $peran)
+    public function show($id)
     {
-        //
+       //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Peran $peran)
-    {
-        //
-    }
+        public function edit($id)
+        {
+       
+            //
+
+        }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePeranRequest $request, Peran $peran)
+    public function update(Request $request, $id)
     {
         //
+    
     }
 
     /**
