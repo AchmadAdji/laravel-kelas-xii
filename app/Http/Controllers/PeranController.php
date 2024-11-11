@@ -56,24 +56,38 @@ class PeranController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-        public function edit($id)
-        {
+    public function edit($id)
+    {
        
-            //
+        $peran = Peran::findOrFail($id);
 
-        }
+        $casts = Cast::all(); 
+        $films = Film::all(); 
 
+        // Mengembalikan view dengan data yang diperlukan
+        return view('Peran.edit-peran', compact('peran', 'casts', 'films'));
+
+    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, $id)
     {
-        //
-    
+        // Validasi data
+        $peran = Peran::find($id);
+    if (!$peran) {
+        return response()->json(['error' => 'Peran tidak ditemukan.'], 404);
     }
 
-    /**
+    $peran->aktor = $request->aktor;
+    $peran->cast_id = $request->cast_id;
+    $peran->film_id = $request->film_id;
+    $peran->save();
+
+    return response()->json(['success' => 'Peran berhasil diperbarui.']);
+    
+    }
      * Remove the specified resource from storage.
      */
     public function destroy(Peran $peran)
