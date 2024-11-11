@@ -90,24 +90,17 @@ class PeranController extends Controller
      
         public function destroy($id)
         {
-            $peran = Peran::findOrFail($id); // Cari data peran berdasarkan ID
-            $peran->delete(); // Hapus data peran
-    
-            // Panggil fugsi untuk menyusun ulang ID
-            $this->reorderIds($id);
-    
-            return redirect()->route('peran.index')->with('success', 'Peran berhasil dihapus.');  //
+            // Temukan data berdasarkan ID
+            $peran = Peran::find($id);
+        
+            // Cek apakah data ditemukan
+            if (!$peran) {
+                return response()->json(['error' => 'Data tidak ditemukan'], 404);
+            }
+        
+            // Hapus data
+            $peran->delete();
+        
+            return response()->json(['success' => 'Data berhasil dihapus']);
         }
-    
-        public function reorderIds($id)
-        {
-            $perans = Peran::orderBy('id')->get(); // Ambil semua data peran terurut berdasarkan ID
-    
-            $id = 1;
-            foreach ($perans as $peran) {
-                $peran->id = $id;
-                $peran->save(); // Simpan perubahan ID yang sudah disusun ulang
-                $id++;
-        }
-}
 }

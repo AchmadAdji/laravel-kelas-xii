@@ -52,13 +52,13 @@
             <tbody>
                 @foreach($perans as $peran)
                     <tr>
-                    <td>{{ $loop->iteration }}</td>
+                        <td>{{ $peran->id }}</td>
                         <td>{{ $peran->actor }}</td>
                         
                         <td>
                             <a href="{{ route('peran.show', $peran->id) }}" class="btn btn-info btn-sm">Lihat</a>
                             <a href="{{ route('peran.edit', $peran->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="#" method="POST" class="d-inline">
+                            <form action="{{ route('peran.destroy', $peran->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
