@@ -52,7 +52,7 @@
             <tbody>
                 @foreach($perans as $peran)
                     <tr>
-                        <td>{{ $peran->id }}</td>
+                    <td>{{ $loop->iteration }}</td>
                         <td>{{ $peran->actor }}</td>
                         
                         <td>

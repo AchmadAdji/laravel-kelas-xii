@@ -16,7 +16,9 @@ Route::get('/peran', [PeranController::class, 'peran'])->name('peran.index');
 Route::get('/show-peran/{id}', [PeranController::class, 'show'])->name('show');
 Route::get('/edit-peran/{id}', [PeranController::class, 'edit'])->name('peran.edit');
 Route::put('/peran/{id}', [PeranController::class, 'update'])->name('peran.update');
+Route::delete('/peran/{id}', [PeranController::class, 'destroy'])->name('peran.destroy');
 
 Route::resource('peran', PeranController::class);
+
 
 
