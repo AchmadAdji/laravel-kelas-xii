@@ -38,7 +38,7 @@
         <br>
         <h1 class="text-justify mb-4">DAFTAR PERAN</h1>
         <br>
-        <a href="#" class="btn btn-success mb-3">Tambah Peran</a>
+        <a href="{{ route('peran.create')}} " class="btn btn-success mb-3">Tambah Peran</a>
         <br>
         <table class="table table-striped">
             <br>

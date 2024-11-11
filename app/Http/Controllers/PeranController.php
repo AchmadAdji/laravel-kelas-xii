@@ -50,7 +50,7 @@ class PeranController extends Controller
     public function show($id)
     {
         $perans = Peran::findOrFail($id);
-        return view('Peran.show-peran', compact('peran'));
+        return view('Peran.show-peran', compact('perans'));
     }
 
     /**

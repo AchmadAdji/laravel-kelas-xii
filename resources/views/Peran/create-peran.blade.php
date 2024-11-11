@@ -35,8 +35,8 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="actor">Actor:</label>
-                    <input type="text" id="actor" name="actor" class="form-control" placeholder="Masukkan Aktor" maxlength="255" required>
+                    <label for="actor">Peran:</label>
+                    <input type="text" id="actor" name="actor" class="form-control" placeholder="Masukkan Peran" maxlength="255" required>
                   </div>
                   <div class="form-group">
                     <label for="cast_id">Cast ID:</label>

@@ -47,7 +47,9 @@
     </div>
 
     <div class="container mt-5">
+        <br>
         <h1 class="text-center mb-4">Detail Peran</h1>
+        <br>
         <table class="table">
             <thead>
                 <tr>
