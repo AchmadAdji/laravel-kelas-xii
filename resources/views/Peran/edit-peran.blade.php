@@ -31,7 +31,7 @@
 		@method('PUT')
 		
 		<div class="form-group">
-			<label for="aktor">Masukan Aktor</label>
+			<label for="aktor">Masukan Peran</label>
 			<input type="text" class="form-control" name="aktor" id="aktor" value="{{ $peran->id }} - {{ $peran->actor }}">
 		</div>
 		
