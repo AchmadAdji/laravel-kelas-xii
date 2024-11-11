@@ -16,7 +16,8 @@ class PeranController extends Controller
      */
     public function index()
     {
-        
+        $perans = Peran::paginate(50);
+        return view('peran.index', compact('perans'));
     }
 
     /**
@@ -48,7 +49,8 @@ class PeranController extends Controller
      */
     public function show($id)
     {
-       //
+        $perans = Peran::findOrFail($id);
+        return view('Peran.show-peran', compact('peran'));
     }
 
     /**
